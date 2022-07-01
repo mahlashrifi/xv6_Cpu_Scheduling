@@ -133,9 +133,11 @@ sys_waitWithStatus(void)
   int *ttime;
   int *rntime;
   int *rdtime;
+  int *priority;
   argptr(0, (char**) &ctime, sizeof(int));
   argptr(1, (char**) &ttime, sizeof(int));
   argptr(2, (char**) &rntime, sizeof(int));
   argptr(3, (char**) &rdtime, sizeof(int));
-  return waitWithStatus(ctime, ttime, rntime, rdtime);
+   argptr(3, (char**) &priority, sizeof(int));
+  return waitWithStatus(ctime, ttime, rntime, rdtime, priority);
 }
